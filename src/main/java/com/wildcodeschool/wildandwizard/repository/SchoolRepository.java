@@ -20,14 +20,14 @@ public class SchoolRepository {
     	   Connection connection = null;
            PreparedStatement statement = null;
            ResultSet resultSet = null;
+               try {
+                   connection = DriverManager.getConnection(
+                           DB_URL, DB_USER, DB_PASSWORD
+                   );
+                   statement = connection.prepareStatement(
+                           "SELECT * FROM school;"
+                   );
          
-           try {
-               connection = DriverManager.getConnection(
-                       DB_URL, DB_USER, DB_PASSWORD
-               );
-               statement = connection.prepareStatement(
-                    "SELECT * FROM school;"
-            );
             resultSet = statement.executeQuery();
             List<School> schools = new ArrayList<>();
             
@@ -53,13 +53,13 @@ public class SchoolRepository {
          PreparedStatement statement = null;
          ResultSet resultSet = null;
 
-        try {
-             connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
-            statement = connection.prepareStatement(
-                    "SELECT * FROM school WHERE id = ?;"
-            );
+            try {
+                connection = DriverManager.getConnection(
+                        DB_URL, DB_USER, DB_PASSWORD
+                );
+                statement = connection.prepareStatement(
+                        "SELECT * FROM school WHERE id = ?;"
+                );
             statement.setLong(1, id);
             resultSet = statement.executeQuery();
 
@@ -80,15 +80,14 @@ public class SchoolRepository {
     	
     	 Connection connection = null;
          PreparedStatement statement = null;
-         ResultSet resultSet = null;
-
-        try {
-            connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
-            statement = connection.prepareStatement(
-                    "SELECT * FROM school WHERE country = ?;"
-            );
+         ResultSet resultSet = null;      
+            try {
+                connection = DriverManager.getConnection(
+                        DB_URL, DB_USER, DB_PASSWORD
+                );
+                statement = connection.prepareStatement(
+                        "SELECT * FROM school WHERE country = ?;"
+                );
             statement.setString(1, country);
             List<School> schools = new ArrayList<>();
             resultSet = statement.executeQuery();

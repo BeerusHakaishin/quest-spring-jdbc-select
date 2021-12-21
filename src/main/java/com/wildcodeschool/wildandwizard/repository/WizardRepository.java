@@ -14,9 +14,9 @@ import com.wildcodeschool.wildandwizard.util.JdbcUtils;
 
 public class WizardRepository {
 
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/spring_jdbc_quest?serverTimezone=GMT";
-    private static final String DB_USER = "h4rryp0tt3r";
-    private static final String DB_PASSWORD = "Horcrux4life!";
+    private final static String DB_URL = "jdbc:mysql://localhost:3306/spring_jdbc_quest?serverTimezone=GMT";
+    private final static String DB_USER = "h4rryp0tt3r";
+    private final static String DB_PASSWORD = "Horcrux4life!";
 
     public List<Wizard> findAll() {
 
